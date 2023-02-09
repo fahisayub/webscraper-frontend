@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 
 const HistoryHeader = () => {
   return (
-    <Box p="10px">
+    <Box p="10px" >
       <Flex>
         <IconButton as={Link} to="/" icon={<FaArrowLeft />} left={"0px"} />
       </Flex>

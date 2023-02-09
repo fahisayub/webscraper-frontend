@@ -2,7 +2,7 @@ import * as types from './url.types';
 
 
 let initState={
-    isLoading:false,isError:false,result:{}
+    isLoading:false,isError:false,result:[]
 }
 
 export const urlReducer=(state=initState,{type,payload})=>{

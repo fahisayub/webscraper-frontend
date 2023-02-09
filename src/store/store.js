@@ -2,9 +2,11 @@ import { applyMiddleware, combineReducers, compose, legacy_createStore } from "r
 
 import thunk from 'redux-thunk'
 import { urlReducer } from "./urlReducer/url.reducer";
+import { historyReducer } from "./historyReducer/history.reducer";
 
 const rootReducer = combineReducers({
-urlReucer:urlReducer
+    urlReducer: urlReducer,
+    historyReducer: historyReducer,
 })
 const composeEnhancer = window.window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 

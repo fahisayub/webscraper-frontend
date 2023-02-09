@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { setUrlApi } from "../store/urlReducer/url.actions";
 
-const UrlInput = () => {
+const UrlInput = ({isLoading}) => {
   const [url, setUrl] = useState("");
   const dispatch = useDispatch();
   const onChangeHandler = (e) => {
@@ -12,17 +12,25 @@ const UrlInput = () => {
   };
 
   const onSubmitHandler = () => {
-    console.log(url);
-    dispatch(setUrlApi(url));
+    console.log({url});
+    dispatch(setUrlApi({url}));
   };
   return (
-    <Box>
+    <Box mt='100px'>
       <Input
-        placeholder="Enter Website URL"
+        placeholder="Enter Website URL, eg: http://example.com"
         type="text"
+        w='50%'
+        size={'lg'}
+        textAlign='center'
+        variant={'filled'}
+        isRequired
         onChange={onChangeHandler}
       />
-      <Button onClick={onSubmitHandler}>Get Insight</Button>
+      <Box>
+
+      <Button m='20px' p='40px' colorScheme="green"size={'lg'} isDisabled={isLoading?true:false} onClick={onSubmitHandler}>{isLoading?"Processing...":'Get Insight'}</Button>
+      </Box>
     </Box>
   );
 };

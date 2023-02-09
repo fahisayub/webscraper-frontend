@@ -10,7 +10,8 @@ import {
   TableContainer,
 } from "@chakra-ui/react";
 import TableRowCard from "./TableRowCard";
-const ResultTable = () => {
+const ResultTable = ({urldata}) => {
+
   return (
     <TableContainer
       borderRadius={"20px"}
@@ -18,7 +19,7 @@ const ResultTable = () => {
       bg={"gray.200"}
       m="10px"
     >
-      <Table variant="simple">
+      <Table variant='simple' >
         <TableCaption>Web page scrap history</TableCaption>
         <Thead bg={"gray.300"}>
           <Tr>
@@ -30,8 +31,12 @@ const ResultTable = () => {
             <Th>Actions</Th>
           </Tr>
         </Thead>
-        <Tbody>
-          <TableRowCard />
+        <Tbody  >
+          {
+            urldata.map((data,i)=>{
+              return(<TableRowCard key={data?._id||i} data={data}  />)
+            })
+          }
         </Tbody>
         <Tfoot>
           <Tr>
